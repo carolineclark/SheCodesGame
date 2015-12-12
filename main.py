@@ -3,6 +3,7 @@
 import os
 import sys
 import pygame
+import game
 from pygame.locals import *
 
 if not pygame.font:
@@ -26,13 +27,18 @@ class PyManMain:
         self.height = height
         """Create the Screen"""
         self.screen = pygame.display.set_mode((self.width, self.height))
+        pygame.display.set_caption('She++ game')
+        self.game = game.Game(self.screen)
 
     def mainloop(self):
         """This is the Main Loop of the Game"""
         while 1:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    pygame.quit()
                     sys.exit()
+            self.game.update()
+            self.game.render(self.screen)
 
 if __name__ == "__main__":
     MainWindow = PyManMain()
