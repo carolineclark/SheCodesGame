@@ -38,7 +38,7 @@ class Player:
         pygame.draw.rect(
             self._surface,
             (255, 255, 255),
-            (self.x, self.y, self.x + self._width, self.y + self._height)
+            (self.x, self.y, self._width, self._height)
         )
         pygame.display.flip()
 
